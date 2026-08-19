@@ -428,11 +428,15 @@ h1, h2, h3, h4 {
 .social-name { font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
 .social-note { font-size: 14.5px; color: var(--gray); }
 
-/* Color propio de cada red, para que se reconozcan de un vistazo. */
+/* Color propio de cada red, para que se reconozcan de un vistazo.
+   YouTube y Pinterest son los dos rojos: se usan tonos distintos a propósito
+   para que no se confundan al quedar uno junto al otro. */
 .social-card.is-ig { border-left-color: #c13584; }
 .social-card.is-ig .social-icon { color: #c13584; }
-.social-card.is-yt { border-left-color: #e62117; }
-.social-card.is-yt .social-icon { color: #e62117; }
+.social-card.is-yt { border-left-color: #ff0000; }
+.social-card.is-yt .social-icon { color: #ff0000; }
+.social-card.is-pin { border-left-color: #bd081c; }
+.social-card.is-pin .social-icon { color: #bd081c; }
 .social-card.is-wp { border-left-color: #21759b; }
 .social-card.is-wp .social-icon { color: #21759b; }
 
@@ -1011,6 +1015,17 @@ h1, h2, h3, h4 {
         <span class="social-note" data-i18n="social.ytNote">Videos de instalaciones y arranques</span>
       </a>
 
+      <a class="social-card is-pin" href="https://www.pinterest.com.mx/TheraSystems/" target="_blank" rel="noopener">
+        <span class="social-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9.4"/>
+            <path d="M10 17.6V7.4h3.2a2.8 2.8 0 0 1 0 5.6H10" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="social-name">Pinterest</span>
+        <span class="social-note" data-i18n="social.pinNote">Tableros de productos y proyectos</span>
+      </a>
+
       <a class="social-card is-wp" href="https://therasystems.wordpress.com/" target="_blank" rel="noopener">
         <span class="social-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -1365,6 +1380,7 @@ h1, h2, h3, h4 {
     'social.lead': 'Follow us',
     'social.igNote': 'Projects and equipment on the plant floor',
     'social.ytNote': 'Videos of installations and start-ups',
+    'social.pinNote': 'Product and project boards',
     'social.wpNote': 'All blog posts',
 
     /* ---------- Contacto ---------- */
