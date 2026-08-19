@@ -488,20 +488,8 @@ h1, h2, h3, h4 {
 .contact-big.small { font-size: 17px; word-break: break-all; }
 .contact-big:hover { color: #ff9d96; text-decoration: none; }
 
-/* Tres números con su país. El primero ya se muestra grande arriba, así que
-   esta lista lo repite en pequeño para que los tres se lean parejos. */
-.phone-list { list-style: none; margin: 14px 0 0; padding: 0; }
-.phone-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 14px;
-  padding: 7px 0;
-  border-top: 1px solid rgba(255, 255, 255, .1);
-}
-.phone-list span { font-size: 12.5px; letter-spacing: .06em; color: #8f98a5; }
-.phone-list a { font-size: 15.5px; font-weight: 600; color: #dfe3e9; white-space: nowrap; }
-.phone-list a:hover { color: #fff; }
+/* Los tres números viven en el pie; aquí solo se anuncia el principal. */
+.contact-hint { margin: 10px 0 0 !important; font-size: 13.5px; color: #8f98a5; }
 
 .contact-person { margin: 12px 0 0 !important; font-size: 14.5px; color: #a8b0bb; }
 .contact-person strong { color: #fff; font-weight: 700; }
@@ -520,6 +508,51 @@ h1, h2, h3, h4 {
 .footer-brand p { margin: 14px 0 0; }
 .footer-brand strong { color: #fff; font-size: 22px; letter-spacing: .1em; }
 .footer-loc { font-size: 14px; color: #7e8794; }
+
+/* ---------- Versículo, debajo del bloque de la marca ---------- */
+.footer-verse {
+  margin: 22px 0 0;
+  padding: 16px 0 0 16px;
+  /* La franja retoma los dos colores del logotipo. */
+  border-left: 3px solid var(--red);
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+.footer-verse .verse-text {
+  margin: 0;
+  font-size: 15px;
+  font-style: italic;
+  color: #cfd4db;
+  line-height: 1.5;
+}
+.footer-verse cite {
+  display: block;
+  margin-top: 6px;
+  font-size: 12.5px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  filter: brightness(1.7);
+}
+.footer-verse .verse-claim {
+  margin: 12px 0 0 !important;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #8f98a5;
+}
+
+/* Etiqueta de país junto a cada teléfono del pie. */
+.footer-tag {
+  display: inline-block;
+  min-width: 26px;
+  margin-right: 9px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: #6e7783;
+}
 .footer-col h4 {
   color: #fff;
   font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
@@ -1054,20 +1087,7 @@ h1, h2, h3, h4 {
       <div class="contact-block">
         <h3 data-i18n="ct.callTitle">Llámanos</h3>
         <a class="contact-big" href="tel:+526561132711">+52 656 113 2711</a>
-        <ul class="phone-list">
-          <li>
-            <span data-i18n="ct.phMx">México · WhatsApp</span>
-            <a href="tel:+526561132711">+52 656 113 2711</a>
-          </li>
-          <li>
-            <span data-i18n="ct.phUs">Estados Unidos</span>
-            <a href="tel:+19158006637">+1 915 800 6637</a>
-          </li>
-          <li>
-            <span data-i18n="ct.phUs2">Estados Unidos</span>
-            <a href="tel:+19157021978">+1 915 702 1978</a>
-          </li>
-        </ul>
+        <p class="contact-hint" data-i18n="ct.phHint">México · también es el WhatsApp. Los números de Estados Unidos están al pie de la página.</p>
       </div>
       <div class="contact-block">
         <h3 data-i18n="ct.mailTitle">Escríbenos</h3>
@@ -1099,6 +1119,15 @@ h1, h2, h3, h4 {
       <img src="data:image/png;base64,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" alt="" width="122" height="68">
       <p><strong>THERA</strong><br>Industrial Technologies</p>
       <p class="footer-loc">Ciudad Juárez, Chih. · El Paso, TX</p>
+
+      <!-- Redacción textual de la firma de Manuel Rodríguez, en inglés en las
+           dos versiones del sitio: las traducciones del salmo varían y la
+           frase que él quiere es la que él escribió. -->
+      <blockquote class="footer-verse">
+        <p class="verse-text">In God I believe; I will not fear.</p>
+        <cite>Psalm 56:11</cite>
+        <p class="verse-claim">This is a company that serves God.</p>
+      </blockquote>
     </div>
 
     <nav class="footer-col" aria-label="Secciones" data-i18n-aria="footer.navLabel">
@@ -1112,8 +1141,9 @@ h1, h2, h3, h4 {
 
     <div class="footer-col">
       <h4 data-i18n="footer.contact">Contacto</h4>
-      <a href="tel:+526561132711">+52 656 113 2711</a>
-      <a href="tel:+19158006637">+1 915 800 6637</a>
+      <a href="tel:+526561132711"><span class="footer-tag">MX</span>+52 656 113 2711</a>
+      <a href="tel:+19158006637"><span class="footer-tag">US</span>+1 915 800 6637</a>
+      <a href="tel:+19157021978"><span class="footer-tag">US</span>+1 915 702 1978</a>
       <a href="mailto:mrodriguez@thera-it.com">mrodriguez@thera-it.com</a>
       <p class="footer-loc" data-i18n="footer.addrMx">Quinta San Jacinto 1026<br>32540, Ciudad Juárez, Chih., México</p>
       <p class="footer-loc" data-i18n="footer.addrUs">9010 Betel Drive<br>El Paso, TX 79907, USA</p>
@@ -1364,9 +1394,8 @@ h1, h2, h3, h4 {
     'ct.mensaje': 'Project details',
     'ct.submit': 'Send request',
     'ct.callTitle': 'Call us',
-    'ct.phMx': 'Mexico · WhatsApp',
-    'ct.phUs': 'United States',
-    'ct.phUs2': 'United States',
+    'ct.phHint': 'Mexico · also our WhatsApp. The United States numbers are at ' +
+      'the bottom of the page.',
     'ct.mailTitle': 'Email us',
     'ct.role': 'CEO / Founder',
     'ct.locMx': 'Ciudad Juárez, Chihuahua',
