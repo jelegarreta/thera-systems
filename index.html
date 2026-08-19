@@ -394,6 +394,48 @@ h1, h2, h3, h4 {
 .post-body h3 { font-size: 18px; margin: 10px 0 8px; }
 .post-body p { margin: 0; font-size: 15px; color: var(--graphite); }
 
+/* ---------- Redes sociales en rectángulos ---------- */
+.social-lead {
+  margin: 0 0 18px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gray);
+}
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+.social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 24px 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  /* La franja de color se pinta con el borde izquierdo, que cada red cambia. */
+  border-left: 4px solid var(--graphite);
+  border-radius: var(--radius);
+  color: inherit;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.social-card:hover {
+  text-decoration: none;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.social-icon { color: var(--graphite); transition: color .18s ease; }
+.social-name { font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
+.social-note { font-size: 14.5px; color: var(--gray); }
+
+/* Color propio de cada red, para que se reconozcan de un vistazo. */
+.social-card.is-ig { border-left-color: #c13584; }
+.social-card.is-ig .social-icon { color: #c13584; }
+.social-card.is-yt { border-left-color: #e62117; }
+.social-card.is-yt .social-icon { color: #e62117; }
+.social-card.is-wp { border-left-color: #21759b; }
+.social-card.is-wp .social-icon { color: #21759b; }
+
 /* ---------- Formulario ---------- */
 .form { margin-top: 28px; }
 .field { margin-bottom: 18px; }
@@ -445,6 +487,24 @@ h1, h2, h3, h4 {
 .contact-big { font-size: 27px; font-weight: 700; letter-spacing: -.02em; color: #fff; }
 .contact-big.small { font-size: 17px; word-break: break-all; }
 .contact-big:hover { color: #ff9d96; text-decoration: none; }
+
+/* Tres números con su país. El primero ya se muestra grande arriba, así que
+   esta lista lo repite en pequeño para que los tres se lean parejos. */
+.phone-list { list-style: none; margin: 14px 0 0; padding: 0; }
+.phone-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  padding: 7px 0;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+.phone-list span { font-size: 12.5px; letter-spacing: .06em; color: #8f98a5; }
+.phone-list a { font-size: 15.5px; font-weight: 600; color: #dfe3e9; white-space: nowrap; }
+.phone-list a:hover { color: #fff; }
+
+.contact-person { margin: 12px 0 0 !important; font-size: 14.5px; color: #a8b0bb; }
+.contact-person strong { color: #fff; font-weight: 700; }
 .link-arrow { display: inline-block; margin-top: 10px; font-size: 14.5px; font-weight: 600; color: #6ea8ff; }
 .link-arrow::after { content: " →"; }
 
@@ -605,7 +665,7 @@ h1, h2, h3, h4 {
       <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch to English" data-i18n-aria="lang.aria">
         <span aria-hidden="true">EN</span>
       </button>
-      <a class="btn btn-sm btn-primary nav-cta" href="https://api.whatsapp.com/send?phone=526561038899" target="_blank" rel="noopener" data-i18n="nav.cta">Cotizar por WhatsApp</a>
+      <a class="btn btn-sm btn-primary nav-cta" href="https://api.whatsapp.com/send?phone=526561132711" target="_blank" rel="noopener" data-i18n="nav.cta">Cotizar por WhatsApp</a>
     </nav>
   </div>
 </header>
@@ -892,9 +952,43 @@ h1, h2, h3, h4 {
       </a>
     </div>
 
-    <p class="center">
-      <a class="btn btn-ghost" href="https://therasystems.wordpress.com/" target="_blank" rel="noopener" data-i18n="blog.all">Ver todas las publicaciones</a>
-    </p>
+    <p class="social-lead" data-i18n="social.lead">Síguenos</p>
+
+    <div class="social-grid">
+      <a class="social-card is-ig" href="https://www.instagram.com/thera.systems/" target="_blank" rel="noopener">
+        <span class="social-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17" cy="7" r="1.3" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <span class="social-name">Instagram</span>
+        <span class="social-note" data-i18n="social.igNote">Proyectos y equipo en planta</span>
+      </a>
+
+      <a class="social-card is-yt" href="https://www.youtube.com/@therasystems" target="_blank" rel="noopener">
+        <span class="social-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="5" width="20" height="14" rx="4"/>
+            <path d="M10.5 9.3v5.4l4.6-2.7-4.6-2.7Z" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+        <span class="social-name">YouTube</span>
+        <span class="social-note" data-i18n="social.ytNote">Videos de instalaciones y arranques</span>
+      </a>
+
+      <a class="social-card is-wp" href="https://therasystems.wordpress.com/" target="_blank" rel="noopener">
+        <span class="social-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9.4"/>
+            <path d="M6.4 8.4 9.4 16l2.6-6.1 2.6 6.1 3-7.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="social-name">WordPress</span>
+        <span class="social-note" data-i18n="social.wpNote">Todas las publicaciones del blog</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -959,18 +1053,41 @@ h1, h2, h3, h4 {
     <aside class="contact-aside">
       <div class="contact-block">
         <h3 data-i18n="ct.callTitle">Llámanos</h3>
-        <a class="contact-big" href="tel:+526561038899">656 103 8899</a>
+        <a class="contact-big" href="tel:+526561132711">+52 656 113 2711</a>
+        <ul class="phone-list">
+          <li>
+            <span data-i18n="ct.phMx">México · WhatsApp</span>
+            <a href="tel:+526561132711">+52 656 113 2711</a>
+          </li>
+          <li>
+            <span data-i18n="ct.phUs">Estados Unidos</span>
+            <a href="tel:+19158006637">+1 915 800 6637</a>
+          </li>
+          <li>
+            <span data-i18n="ct.phUs2">Estados Unidos</span>
+            <a href="tel:+19157021978">+1 915 702 1978</a>
+          </li>
+        </ul>
       </div>
       <div class="contact-block">
         <h3 data-i18n="ct.mailTitle">Escríbenos</h3>
         <a class="contact-big small" href="mailto:mrodriguez@thera-it.com">mrodriguez@thera-it.com</a>
+        <p class="contact-person">
+          <strong>Manuel Rodríguez García</strong><br>
+          <span data-i18n="ct.role">CEO / Fundador</span>
+        </p>
       </div>
       <div class="contact-block">
-        <h3 data-i18n="ct.locTitle">Nuestra ubicación</h3>
-        <p data-i18n="ct.address">Calle Quinta San Jacinto Pte. 1026<br>C.P. 32540, Ciudad Juárez, Chih.</p>
-        <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=Calle+Quinta+San+Jacinto+Pte.+1026%2C+32540+Ciudad+Ju%C3%A1rez%2C+Chih." target="_blank" rel="noopener" data-i18n="ct.maps">Abrir en Google Maps</a>
+        <h3 data-i18n="ct.locMx">Ciudad Juárez, Chihuahua</h3>
+        <p data-i18n="ct.addrMx">Quinta San Jacinto 1026<br>C.P. 32540, Ciudad Juárez, Chih., México</p>
+        <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=Quinta+San+Jacinto+1026%2C+32540+Ciudad+Ju%C3%A1rez%2C+Chihuahua" target="_blank" rel="noopener" data-i18n="ct.maps">Abrir en Google Maps</a>
       </div>
-      <a class="btn btn-primary btn-block" href="https://api.whatsapp.com/send?phone=526561038899" target="_blank" rel="noopener" data-i18n="ct.wa">Escribir por WhatsApp</a>
+      <div class="contact-block">
+        <h3 data-i18n="ct.locUs">El Paso, Texas</h3>
+        <p data-i18n="ct.addrUs">9010 Betel Drive<br>El Paso, TX 79907, USA</p>
+        <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=9010+Betel+Drive%2C+El+Paso%2C+TX+79907" target="_blank" rel="noopener" data-i18n="ct.maps">Abrir en Google Maps</a>
+      </div>
+      <a class="btn btn-primary btn-block" href="https://api.whatsapp.com/send?phone=526561132711" target="_blank" rel="noopener" data-i18n="ct.wa">Escribir por WhatsApp</a>
     </aside>
   </div>
 </section>
@@ -995,9 +1112,11 @@ h1, h2, h3, h4 {
 
     <div class="footer-col">
       <h4 data-i18n="footer.contact">Contacto</h4>
-      <a href="tel:+526561038899">656 103 8899</a>
+      <a href="tel:+526561132711">+52 656 113 2711</a>
+      <a href="tel:+19158006637">+1 915 800 6637</a>
       <a href="mailto:mrodriguez@thera-it.com">mrodriguez@thera-it.com</a>
-      <p class="footer-loc" data-i18n="footer.address">Calle Quinta San Jacinto Pte. 1026<br>32540, Ciudad Juárez, Chih.</p>
+      <p class="footer-loc" data-i18n="footer.addrMx">Quinta San Jacinto 1026<br>32540, Ciudad Juárez, Chih., México</p>
+      <p class="footer-loc" data-i18n="footer.addrUs">9010 Betel Drive<br>El Paso, TX 79907, USA</p>
     </div>
 
     <div class="footer-col">
@@ -1010,11 +1129,11 @@ h1, h2, h3, h4 {
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>© <span id="year">2026</span> THERA. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+    <p>© <span id="year">2026</span> THERA, LLC. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
   </div>
 </footer>
 
-<a class="wa-float" href="https://api.whatsapp.com/send?phone=526561038899" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-i18n-aria="ct.wa">
+<a class="wa-float" href="https://api.whatsapp.com/send?phone=526561132711" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-i18n-aria="ct.wa">
   <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.42 1.3-1.96 1.35-.54.05-1.04.24-3.5-.73-2.96-1.17-4.82-4.26-4.97-4.46-.15-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.37.78-.37s.4 0 .58.01c.19.01.44-.07.68.52.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.19-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.13.07.75-.17 1.43Z"/>
   </svg>
@@ -1212,7 +1331,11 @@ h1, h2, h3, h4 {
       'efficiency…',
     'blog.6alt': 'Collaborative robotics',
 
-    'blog.all': 'See all posts',
+    /* ---------- Redes sociales ---------- */
+    'social.lead': 'Follow us',
+    'social.igNote': 'Projects and equipment on the plant floor',
+    'social.ytNote': 'Videos of installations and start-ups',
+    'social.wpNote': 'All blog posts',
 
     /* ---------- Contacto ---------- */
     'ct.eyebrow': 'Contact',
@@ -1241,9 +1364,15 @@ h1, h2, h3, h4 {
     'ct.mensaje': 'Project details',
     'ct.submit': 'Send request',
     'ct.callTitle': 'Call us',
+    'ct.phMx': 'Mexico · WhatsApp',
+    'ct.phUs': 'United States',
+    'ct.phUs2': 'United States',
     'ct.mailTitle': 'Email us',
-    'ct.locTitle': 'Our location',
-    'ct.address': 'Calle Quinta San Jacinto Pte. 1026<br>ZIP 32540, Ciudad Juárez, Chih., Mexico',
+    'ct.role': 'CEO / Founder',
+    'ct.locMx': 'Ciudad Juárez, Chihuahua',
+    'ct.addrMx': 'Quinta San Jacinto 1026<br>ZIP 32540, Ciudad Juárez, Chih., Mexico',
+    'ct.locUs': 'El Paso, Texas',
+    'ct.addrUs': '9010 Betel Drive<br>El Paso, TX 79907, USA',
     'ct.maps': 'Open in Google Maps',
     'ct.wa': 'Message us on WhatsApp',
 
@@ -1252,7 +1381,8 @@ h1, h2, h3, h4 {
     'footer.contact': 'Contact',
     'footer.follow': 'Follow us',
     'footer.navLabel': 'Sections',
-    'footer.address': 'Calle Quinta San Jacinto Pte. 1026<br>32540, Ciudad Juárez, Chih., Mexico',
+    'footer.addrMx': 'Quinta San Jacinto 1026<br>32540, Ciudad Juárez, Chih., Mexico',
+    'footer.addrUs': '9010 Betel Drive<br>El Paso, TX 79907, USA',
     'footer.rights': 'All rights reserved.',
 
     /* ---------- Cabecera del documento ---------- */
